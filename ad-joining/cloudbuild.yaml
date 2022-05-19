@@ -63,7 +63,7 @@ steps:
   - --allow-unauthenticated
   - --service-account=$_SERVICE_ACCOUNT_EMAIL
   - --set-env-vars=AD_DOMAIN=$_AD_DOMAIN 
-  - --set-env-vars=AD_USERNAME=$_AD_NETBIOS_DOMAIN\register-computer 
+  - --set-env-vars=AD_USERNAME=$_AD_NETBIOS_DOMAIN\SrvAcctGCPJoinDev 
   - --set-env-vars=SECRET_PROJECT_ID=$PROJECT_ID 
   - --set-env-vars=SECRET_NAME=$_SECRET_NAME 
   - --set-env-vars=SECRET_VERSION=$_SECRET_VERSION 
