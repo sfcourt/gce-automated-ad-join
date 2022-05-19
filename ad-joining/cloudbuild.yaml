@@ -39,12 +39,15 @@ steps:
   - -t
   - gcr.io/$PROJECT_ID/register-computer:$_IMAGE_TAG
   - .
+  dir: 'ad-joining'
 
 # Push Docker image to Container Registry
 - name: 'gcr.io/cloud-builders/docker'
   args: 
   - push
   - gcr.io/$PROJECT_ID/register-computer:$_IMAGE_TAG
+  dir: 'ad-joining'
+
   
 # Deploy to Cloud Run
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
@@ -67,5 +70,6 @@ steps:
   - --set-env-vars=FUNCTION_IDENTITY=$_SERVICE_ACCOUNT_EMAIL
   - --set-env-vars=^:^PROJECTS_DN=$_PROJECTS_DN
   - --vpc-connector=projects/$PROJECT_ID/locations/$_SERVERLESS_REGION/connectors/$_SERVERLESS_CONNECTOR
+  dir: 'ad-joining'
 
 images: ['gcr.io/$PROJECT_ID/register-computer:$_IMAGE_TAG']
